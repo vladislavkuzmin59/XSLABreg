@@ -18,7 +18,15 @@
 import BaseInput from '@/components/UI/BaseInput.vue';
 
     export default {
-    components: { BaseInput }
+    data() {
+        return {
+            email: "user@mail.ru",
+            password: "1234567"
+        }
+    },
+    components: { BaseInput },
+    methods: {
+    },
 }
 </script>
 

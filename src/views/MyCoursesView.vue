@@ -12,7 +12,14 @@ import MyCoursesBody from '@/components/MyCoursesView/MyCoursesBody/MyCoursesBod
 import TheFooter from '@/components/MyCoursesView/Footer/TheFooter.vue';
 
     export default {
-    components: { TheHeader, MyCoursesBody, TheFooter }
+        data() {
+            return {
+                users:[]
+            }
+        },
+    components: { TheHeader, MyCoursesBody, TheFooter },
+    methods: {
+    },
 }
 </script>
 

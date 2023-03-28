@@ -1,6 +1,6 @@
 <template>
     <input type="text" :value="modelValue"
-    @input="$emit('update:modelValue', $event.target.value)" 
+    @input="$emit('input', $event.target.value)" 
     :placeholder="placeholder" 
     :class="['input', getPropsFactory]" >
 </template>

@@ -2,7 +2,7 @@
     <div class="container-title">
         <div class="title">Через почту или телефон</div>
         <div class="inputs">
-            <BaseInput placeholder="Имя и фамилия" v-model="username" />
+            <BaseInput placeholder="Имя и фамилия" v-model="name" />
             <BaseInput placeholder="Почта" v-model="email"/>
             <div class="input__number">
                 <div class="first__number">
@@ -12,7 +12,10 @@
                     </div>
                     <img src="@/assets/img/arrowDown.svg" alt="">
                 </div>
-                <input type="text" placeholder="Введите номер" v-model="userData.phone">
+                <input type="text" placeholder="Введите номер" v-model="phone">
+                <router-link to="/">
+                <button @click="sendUserData()">dasd</button>
+                </router-link>
             </div>
         </div>
     </div>
@@ -24,19 +27,21 @@ import axios from 'axios'
     export default {
         data() {
             return {
-                userData: {
-                    email: "",
-                    phone: "",
-                    username: "",
-                },
-                userConfig: {
-                    phone: this.phone,
-                }
+                name: "",
+                email: "",
+                password: "1234567",
+                phone: "",
             }
         },
         methods: {
             sendUserData() {
-                axios.post('url', this.userData, this.userConfig)
+                const CreateUserDto = {
+                    name: this.name,
+                    email: this.email,
+                    password: this.password,
+                    phone: this.phone,
+                }
+                axios.post('http://api.codepeak.ru:7000/auth/register', CreateUserDto)
                     .then(res => console.log(res))
                     .catch(err => console.log(err))
             }
